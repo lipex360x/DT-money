@@ -1,9 +1,13 @@
+import { Container } from '@/components/bosons/Container'
+import { SummaryList } from '@/components/organisms/SummaryList'
 import * as S from './styles'
 
 export const TransactionsPage = () => {
   return (
     <S.Wrapper>
-      <h1>Hello TransactionsPage</h1>
+      <Container>
+        <SummaryList />
+      </Container>
     </S.Wrapper>
   )
 }
