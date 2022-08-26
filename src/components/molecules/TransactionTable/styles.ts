@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.table`
   ${({ theme }) => css`
-    margin-top: 4rem;
+    margin-top: 1rem;
     width: 100%;
     border-collapse: separate;
     border-spacing: 0 0.5rem;
