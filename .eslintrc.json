@@ -1,3 +1,31 @@
 {
-  "extends": "@rocketseat/eslint-config/react"
+  "extends": "@rocketseat/eslint-config/react",
+  "rules": {
+    "no-undef": "off",
+    // "prettier/prettier": [
+    //   "error",
+    //   {
+    // "endOfLine": "auto",
+    // "printWidth": 80,
+    // "trailingComma": "es5",
+    // "semi": false,
+    // "doubleQuote": true,
+    // "jsxSingleQuote": true,
+    // "singleQuote": false,
+    // "useTabs": false,
+    // "tabWidth": "off"
+    //   }
+    // ]
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 80,
+        "tabWidth": false,
+        "singleQuote": true,
+        "trailingComma": "all",
+        "arrowParens": "always",
+        "semi": false
+      }
+    ]
+  }
 }
