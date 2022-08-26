@@ -16,7 +16,7 @@ export const GlobalStyles = createGlobalStyle`
     input,
     textarea,
     button {
-      font-family: ${theme.font.family};
+      font: 400 1rem ${theme.font.family};
     }
 
     * {
