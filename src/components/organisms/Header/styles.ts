@@ -8,7 +8,7 @@ export const Wrapper = styled.header`
 `
 
 export const Content = styled.section`
-  ${({ theme }) => css`
+  ${() => css`
     display: flex;
     align-items: center;
     justify-content: space-between;
