@@ -17,10 +17,28 @@ const wrapperModifiers = {
   large: (theme: DefaultTheme) => css`
     padding: 1em 2rem;
   `,
+
+  withIcon: (theme: DefaultTheme) => css`
+  svg {
+      width: 1.5rem;
+      & + span {
+        margin-left: ${theme.spacing.xxsmall};
+      }
+    }
+  `,
+
+  minimal: (theme: DefaultTheme) => css`
+    background: none;
+    color: ${theme.color['green-300']};
+    border: 2px solid ${theme.color['green-300']}
+  `
 }
 
 export const Wrapper = styled.button<WrapperProps>`
   ${({ theme, size, fullWidth, hasIcon, minimal }) => css`
+    display: flex;
+    align-items: center;
+
     color: ${theme.color.white};
     background: ${theme.color['green-500']};
 
@@ -33,5 +51,7 @@ export const Wrapper = styled.button<WrapperProps>`
     }
 
     ${!!size && wrapperModifiers[size](theme)}
+    ${!!hasIcon && wrapperModifiers.withIcon(theme)}
+    ${!!minimal && wrapperModifiers.minimal(theme)}
   `}
 `
