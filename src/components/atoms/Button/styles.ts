@@ -30,13 +30,25 @@ const wrapperModifiers = {
   minimal: (theme: DefaultTheme) => css`
     background: none;
     color: ${theme.color['green-300']};
-    border: 2px solid ${theme.color['green-300']}
-  `
+    border: 2px solid ${theme.color['green-300']};
+    transition: border-color ${theme.transition.fast};
+
+    &:hover {
+      border-color: ${theme.color['green-500']};
+      background: none;
+    }
+  `,
+
+  fullWidth: () => css`
+    width: 100%;
+    text-align: center;
+  `,
 }
 
 export const Wrapper = styled.button<WrapperProps>`
   ${({ theme, size, fullWidth, hasIcon, minimal }) => css`
-    display: flex;
+    display: inline-flex;
+    justify-content: center;
     align-items: center;
 
     color: ${theme.color.white};
@@ -53,5 +65,6 @@ export const Wrapper = styled.button<WrapperProps>`
     ${!!size && wrapperModifiers[size](theme)}
     ${!!hasIcon && wrapperModifiers.withIcon(theme)}
     ${!!minimal && wrapperModifiers.minimal(theme)}
+    ${!!fullWidth && wrapperModifiers.fullWidth}
   `}
 `
