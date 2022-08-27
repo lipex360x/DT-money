@@ -13,6 +13,7 @@ export const Wrapper = styled.form`
       border: 0;
       background: ${theme.color['gray-900']};
       padding: 1rem;
+      color: ${theme.color['gray-300']};
 
       &::placeholder{
         color: ${theme.color['gray-500']}
