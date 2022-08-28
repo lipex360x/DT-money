@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.input`
+export const Input = styled.input`
   ${({ theme }) => css`
     flex: 1;
     border-radius: 6px;
