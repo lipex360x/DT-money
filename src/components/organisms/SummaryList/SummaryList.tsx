@@ -31,22 +31,24 @@ export const SummaryList = () => {
   return (
     <S.Wrapper>
       <SummaryCard
-        icon={<ArrowCircleUp size={32} color="#00b373" />}
-        transaction="Entradas"
-        value={priceFormatter.format(summary.income)}
+        variant='income'
+        title="Entradas"
+        icon={<ArrowCircleUp />}
+        value={summary.income}
       />
 
       <SummaryCard
-        icon={<ArrowCircleDown size={32} color="#f75a68" />}
-        transaction="Saídas"
-        value={priceFormatter.format(summary.outcome)}
+        variant='outcome'
+        title="Saídas"
+        icon={<ArrowCircleDown />}
+        value={summary.outcome}
       />
 
       <SummaryCard
-        variant='green'
-        icon={<CurrencyDollar size={32} color="#fff" />}
-        transaction="Total"
-        value={priceFormatter.format(summary.total)}
+        variant='total'
+        title="Total"
+        icon={<CurrencyDollar />}
+        value={summary.total}
       />
     </S.Wrapper>
   )

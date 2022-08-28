@@ -1,21 +1,24 @@
+import { priceFormatter } from '@/services/formatter.service'
 import * as S from './styles'
 
 export type SummaryCardProps = {
-  variant?: 'gray' | 'green'
-  transaction: string
+  variant: 'income' | 'outcome' | 'total'
+  title: string
   icon: JSX.Element
-  value: string
+  value: number
 }
 
-export const SummaryCard = ({ variant = 'gray', icon, transaction, value }: SummaryCardProps) => {
-  return (
-    <S.Wrapper variant={variant}>
-      <header>
-        <span>{transaction}</span>
-        {icon}
-      </header>
+export const SummaryCard = ({ variant, icon, title, value }: SummaryCardProps) => (
+  <S.Wrapper variant={variant}>
+    <S.Header>
+      <span>{title}</span>
+      {icon}
+    </S.Header>
 
-      <strong>{value}</strong>
-    </S.Wrapper>
-  )
-}
+    <S.Price>
+      {variant === 'outcome' && '- '}
+      {priceFormatter.format(value)}
+    </S.Price>
+  </S.Wrapper>
+)
+
