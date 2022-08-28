@@ -75,16 +75,8 @@ const wrapperModifiers = {
   `,
 }
 
-export const Wrapper = styled.button<WrapperProps>`
-  ${({
-  theme,
-  size,
-  fullWidth,
-  hasIcon,
-  minimal,
-  backgroundColor,
-  variant
-}) => css`
+export const ButtonBase = styled.button`
+  ${({ theme }) => css`
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -94,7 +86,19 @@ export const Wrapper = styled.button<WrapperProps>`
 
     border-radius: ${theme.border.radius.soft};
     transition: background-color ${theme.transition.fast};
+  `}
+`
 
+export const Wrapper = styled(ButtonBase) <WrapperProps>`
+  ${({
+  theme,
+  size,
+  fullWidth,
+  hasIcon,
+  minimal,
+  backgroundColor,
+  variant
+}) => css`
     ${!!backgroundColor && wrapperModifiers[backgroundColor](theme)}
     ${!!size && wrapperModifiers[size](theme)}
     ${!!hasIcon && wrapperModifiers.withIcon(theme)}
