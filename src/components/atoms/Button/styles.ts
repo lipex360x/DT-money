@@ -30,7 +30,7 @@ const wrapperModifiers = {
   green: (theme: DefaultTheme) => css`
     background: ${theme.color['green-500']};
 
-    &:hover {
+    &:not(:disabled):hover {
       background: ${theme.color['green-700']};
     }
   `,
@@ -38,7 +38,7 @@ const wrapperModifiers = {
   gray: (theme: DefaultTheme) => css`
     background: ${theme.color['gray-700']};
 
-    &:hover {
+    &:not(:disabled):hover{
       background: ${theme.color['gray-900']};
     }
   `,
@@ -46,7 +46,7 @@ const wrapperModifiers = {
   red: (theme: DefaultTheme) => css`
     background: ${theme.color['red-500']};
 
-    &:hover {
+    &:not(:disabled):hover{
       background: ${theme.color['red-700']};
     }
   `,
@@ -60,12 +60,12 @@ const wrapperModifiers = {
   minimal: (theme: DefaultTheme) => css`
     background: none;
     color: ${theme.color['green-300']};
-    border: 2px solid ${theme.color['green-300']};
-    transition: border-color ${theme.transition.fast};
+    border: 2px solid ${theme.color['green-500']};
+    transition: background, color ${theme.transition.fast};
 
-    &:hover {
-      border-color: ${theme.color['green-500']};
-      background: none;
+    &:not(:disabled):hover{
+      color: ${theme.color.white};
+      background: ${theme.color['green-500']};
     }
   `,
 

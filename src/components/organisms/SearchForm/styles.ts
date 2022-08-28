@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-export const Wrapper = styled.form`
+export const Form = styled.form`
   ${({ theme }) => css`
     display: flex;
     gap: 1rem;
