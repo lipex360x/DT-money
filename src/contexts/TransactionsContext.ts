@@ -7,7 +7,7 @@ type ContextProps = {
   setTransactions: (transactions: TransactionDto[]) => void
 }
 
-export const useTransactions = create<ContextProps>((set) => {
+export const useTransactionsContext = create<ContextProps>((set) => {
   return {
     transactions: [],
 
