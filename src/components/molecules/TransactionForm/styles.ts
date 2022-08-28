@@ -17,7 +17,7 @@ const buttonModifiers = {
   `,
 }
 
-export const Wrapper = styled.form`
+export const Form = styled.form`
   ${() => css`
     display: flex;
     flex-direction: column;

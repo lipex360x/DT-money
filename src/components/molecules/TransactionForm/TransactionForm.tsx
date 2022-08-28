@@ -1,14 +1,49 @@
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { ArrowCircleUp, ArrowCircleDown } from 'phosphor-react'
 import { Button } from '@/components/atoms/Button'
 import { TextField } from '@/components/atoms/FormElements/TextField'
 import * as S from './styles'
+import transactionFormSchema, { TransactionFormInputs } from './TransactionForm.schema'
 
 export const TransactionForm = () => {
+
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting }
+  } = useForm<TransactionFormInputs>({
+    resolver: zodResolver(transactionFormSchema)
+  })
+
+  const handleCreateTransaction = async (data: TransactionFormInputs) => {
+    await new Promise(resolve => setTimeout(resolve, 2000))
+    console.log(data)
+  }
+
   return (
-    <S.Wrapper action=''>
-      <TextField type="text" placeholder='Descrição' required />
-      <TextField type="number" placeholder='Preço' required />
-      <TextField type="text" placeholder='Categoria' required />
+    <S.Form onSubmit={handleSubmit(handleCreateTransaction)}>
+      <TextField
+        type="text"
+        placeholder='Descrição'
+        {...register('description')}
+        required
+      />
+
+      <TextField
+        type="number"
+        placeholder='Preço'
+        {...register('price', { valueAsNumber: true })}
+        required
+      />
+
+      <TextField
+        type="text"
+        placeholder='Categoria'
+        {...register('category')}
+        required
+      />
+
       <S.TransactionType>
         <S.TransactionTypeButton value='income' variant='income'>
           <ArrowCircleUp size={24} />
@@ -21,7 +56,11 @@ export const TransactionForm = () => {
         </S.TransactionTypeButton>
       </S.TransactionType>
 
-      <Button fullWidth size='large'>Cadastrar</Button>
-    </S.Wrapper>
+      <Button
+        fullWidth size='large'
+        type="submit"
+        disabled={isSubmitting}
+      >Cadastrar</Button>
+    </S.Form>
   )
 }
