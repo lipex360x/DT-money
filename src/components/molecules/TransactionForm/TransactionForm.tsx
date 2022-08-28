@@ -5,14 +5,17 @@ import { Button } from '@/components/atoms/Button'
 import { TextField } from '@/components/atoms/FormElements/TextField'
 import * as S from './styles'
 import transactionFormSchema, { TransactionFormInputs } from './TransactionForm.schema'
+import { useTransactionsContext } from '@/contexts/TransactionsContext'
 
 export const TransactionForm = () => {
+  const { createTransaction } = useTransactionsContext()
 
   const {
     control,
     register,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
+    reset
   } = useForm<TransactionFormInputs>({
     resolver: zodResolver(transactionFormSchema),
     defaultValues: {
@@ -21,8 +24,8 @@ export const TransactionForm = () => {
   })
 
   const handleCreateTransaction = async (data: TransactionFormInputs) => {
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    console.log(data)
+    await createTransaction(data)
+    reset()
   }
 
   return (
