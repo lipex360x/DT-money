@@ -23,13 +23,3 @@ export const Wrapper = styled.table`
     }
   `}
 `
-
-type PriceHighLightProps = {
-  variant: 'income' | 'outcome'
-}
-
-export const PriceHighLight = styled.span<PriceHighLightProps>`
-  ${({ theme, variant }) => css`
-    color: ${variant === 'income' ? theme.color['green-300'] : theme.color['red-300']}
-  `}
-`

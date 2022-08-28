@@ -1,5 +1,6 @@
+import { PriceHighLight } from '@/components/atoms/PriceHighLight'
 import { useTransactionsContext } from '@/contexts/TransactionsContext'
-import { dateFormatter, priceFormatter } from '@/services/formatter.service'
+import { dateFormatter } from '@/services/formatter.service'
 import * as S from './styles'
 
 export const TransactionTable = () => {
@@ -12,10 +13,10 @@ export const TransactionTable = () => {
           <tr key={transaction.id}>
             <td width="40%">{transaction.description}</td>
             <td>
-              <S.PriceHighLight variant={transaction.type}>
-                {transaction.type === 'outcome' && '- '}
-                {priceFormatter.format(transaction.price)}
-              </S.PriceHighLight>
+              <PriceHighLight
+                variant={transaction.type}
+                price={transaction.price}
+              />
             </td>
             <td>{transaction.category}</td>
             <td>
