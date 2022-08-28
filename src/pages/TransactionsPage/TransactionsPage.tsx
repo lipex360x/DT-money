@@ -4,8 +4,6 @@ import { SearchForm } from '@/components/organisms/SearchForm'
 import { TransactionTable } from '@/components/organisms/TransactionTable'
 import { SummaryList } from '@/components/organisms/SummaryList'
 import { useTransactionsContext } from '@/contexts/TransactionsContext'
-import * as S from './styles'
-
 
 export const TransactionsPage = () => {
 
@@ -21,12 +19,10 @@ export const TransactionsPage = () => {
   }, [])
 
   return (
-    <S.Wrapper>
-      <Container>
-        <SummaryList />
-        <SearchForm />
-        <TransactionTable />
-      </Container>
-    </S.Wrapper>
+    <Container>
+      <SummaryList />
+      <SearchForm />
+      <TransactionTable />
+    </Container>
   )
 }
