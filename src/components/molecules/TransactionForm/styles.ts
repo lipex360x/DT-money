@@ -56,7 +56,7 @@ export const TransactionTypeButton = styled(RadioGroup.Item) <TransactionTypeBut
     background: ${theme.color['gray-700']};
 
     svg {
-      width: 1.5rem;
+      font-size: 1.5rem;
       & + span {
         margin-left: ${theme.spacing.xxsmall};
       }

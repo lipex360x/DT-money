@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ArrowCircleUp, ArrowCircleDown } from 'phosphor-react'
 import { Button } from '@/components/atoms/Button'
@@ -9,11 +9,15 @@ import transactionFormSchema, { TransactionFormInputs } from './TransactionForm.
 export const TransactionForm = () => {
 
   const {
+    control,
     register,
     handleSubmit,
     formState: { isSubmitting }
   } = useForm<TransactionFormInputs>({
-    resolver: zodResolver(transactionFormSchema)
+    resolver: zodResolver(transactionFormSchema),
+    defaultValues: {
+      type: 'income'
+    }
   })
 
   const handleCreateTransaction = async (data: TransactionFormInputs) => {
@@ -44,17 +48,26 @@ export const TransactionForm = () => {
         required
       />
 
-      <S.TransactionType>
-        <S.TransactionTypeButton value='income' variant='income'>
-          <ArrowCircleUp size={24} />
-          <span>Entrada</span>
-        </S.TransactionTypeButton>
+      <Controller
+        control={control}
+        name="type"
+        render={({ field }) => {
+          return (
+            <S.TransactionType onValueChange={field.onChange} value={field.value}
+            >
+              <S.TransactionTypeButton value='income' variant='income'>
+                <ArrowCircleUp />
+                <span>Entrada</span>
+              </S.TransactionTypeButton>
 
-        <S.TransactionTypeButton value='outcome' variant='outcome'>
-          <ArrowCircleDown size={24} />
-          <span>Saída</span>
-        </S.TransactionTypeButton>
-      </S.TransactionType>
+              <S.TransactionTypeButton value='outcome' variant='outcome'>
+                <ArrowCircleDown />
+                <span>Saída</span>
+              </S.TransactionTypeButton>
+            </S.TransactionType>
+          )
+        }}
+      />
 
       <Button
         fullWidth size='large'
