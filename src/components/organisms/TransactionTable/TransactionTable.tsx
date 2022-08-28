@@ -1,13 +1,8 @@
-import { TransactionDto } from '@/Dtos/transactions'
+import { useTransactions } from '@/contexts/TransactionsContext'
 import * as S from './styles'
 
-type TransactionTableProps = {
-  transactions: TransactionDto[]
-}
-
-export const TransactionTable = ({ transactions }: TransactionTableProps) => {
-
-  console.log(transactions)
+export const TransactionTable = () => {
+  const { transactions } = useTransactions()
 
   return (
     <S.Wrapper>

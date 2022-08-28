@@ -14,7 +14,7 @@ export const SummaryList = () => {
 
       <SummaryCard
         icon={<ArrowCircleDown size={32} color="#f75a68" />}
-        transaction="Entradas"
+        transaction="Saídas"
         value='R$ 17.400,00'
       />
 

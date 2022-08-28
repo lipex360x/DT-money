@@ -5,11 +5,12 @@ import { SummaryList } from '@/components/organisms/SummaryList'
 import * as S from './styles'
 import { useEffect, useState } from 'react'
 import { TransactionDto } from '@/Dtos/transactions'
+import { useTransactions } from '@/contexts/TransactionsContext'
 
 
 export const TransactionsPage = () => {
 
-  const [transactions, setTransactions] = useState<TransactionDto[]>([])
+  const { setTransactions } = useTransactions()
 
   const loadTransactions = async () => {
     const response = await fetch('http://localhost:3333/transactions')
@@ -25,7 +26,7 @@ export const TransactionsPage = () => {
       <Container>
         <SummaryList />
         <SearchForm />
-        <TransactionTable transactions={transactions} />
+        <TransactionTable />
       </Container>
     </S.Wrapper>
   )
