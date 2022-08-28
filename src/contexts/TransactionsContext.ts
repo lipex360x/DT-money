@@ -1,3 +1,4 @@
+import { api } from '@/components/api/client'
 import { TransactionDto } from '@/Dtos/transactions'
 import { produce } from 'immer'
 import create from 'zustand'
@@ -13,16 +14,13 @@ export const useTransactionsContext = create<ContextProps>((set) => {
     transactions: [],
 
     fetchTransactions: async (query?: string) => {
-      const url = new URL('http://localhost:3333/transactions')
-
-      if (query) url.searchParams.append('q', query)
-
-      const response = await fetch(url)
-      const data: TransactionDto[] = await response.json()
+      const response = await api.get<TransactionDto[]>('transactions', {
+        params: { q: query }
+      })
 
       set((state) =>
         produce(state, (draft) => {
-          draft.transactions = data
+          draft.transactions = response.data
         })
       )
     }
