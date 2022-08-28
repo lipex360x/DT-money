@@ -4,17 +4,27 @@ import create from 'zustand'
 
 type ContextProps = {
   transactions: TransactionDto[]
-  setTransactions: (transactions: TransactionDto[]) => void
+  fetchTransactions: (query?: string) => Promise<void>
 }
+
 
 export const useTransactionsContext = create<ContextProps>((set) => {
   return {
     transactions: [],
 
-    setTransactions: (transactions) => set((state) =>
-      produce(state, (draft) => {
-        draft.transactions = transactions
-      })
-    )
+    fetchTransactions: async (query?: string) => {
+      const url = new URL('http://localhost:3333/transactions')
+
+      if (query) url.searchParams.append('q', query)
+
+      const response = await fetch(url)
+      const data: TransactionDto[] = await response.json()
+
+      set((state) =>
+        produce(state, (draft) => {
+          draft.transactions = data
+        })
+      )
+    }
   }
 })

@@ -7,15 +7,10 @@ import { useTransactionsContext } from '@/contexts/TransactionsContext'
 
 export const TransactionsPage = () => {
 
-  const { setTransactions } = useTransactionsContext()
+  const { fetchTransactions } = useTransactionsContext()
 
-  const loadTransactions = async () => {
-    const response = await fetch('http://localhost:3333/transactions')
-    const data = await response.json()
-    setTransactions(data)
-  }
   useEffect(() => {
-    loadTransactions()
+    fetchTransactions()
   }, [])
 
   return (

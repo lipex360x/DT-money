@@ -5,9 +5,12 @@ import { Button } from '@/components/atoms/Button'
 import * as S from './styles'
 import { TextField } from '@/components/atoms/FormElements/TextField'
 import searchFormSchema, { SearchFormInputs } from './searchForm.schema'
+import { useTransactionsContext } from '@/contexts/TransactionsContext'
 
 
 export const SearchForm = () => {
+  const { fetchTransactions } = useTransactionsContext()
+
   const {
     register,
     handleSubmit,
@@ -17,8 +20,7 @@ export const SearchForm = () => {
   })
 
   const handleSearchTransactions = async (data: SearchFormInputs) => {
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    console.log(data)
+    await fetchTransactions(data.query)
   }
 
   return (
