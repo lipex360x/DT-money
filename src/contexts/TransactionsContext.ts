@@ -1,5 +1,5 @@
 import { api } from '@/components/api/client'
-import { TransactionDto } from '@/Dtos/transactions'
+import { TransactionDto } from '@/dtos/transactions'
 import { produce } from 'immer'
 import create from 'zustand'
 
