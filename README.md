@@ -1,5 +1,5 @@
-<h2 align="center">ViteTS Boilerplate</h2>
-<p align="center">React + Typescript Boilerplate with Vite</p>
+<h2 align="center">DT-Money</h2>
+<p align="center">Your personal financial control</p>
 
 ---
 
@@ -15,39 +15,23 @@
 
 - [Startup](#zap-startup)
 
-- [Generate Modules/Pages](#zap-generator)
-
 - [Technologies](#zap-technologies)
 
 ---
 
 #### :zap: Introduction
 
-This is a boilerplate for React Project using Atomic Design with generator
+This is a financial control app
 
 ---
 
 #### :zap: Startup
 
-- Start project with this Templante
-
 - Install dependencies with `yarn` or `npm install`
 
 - run `yarn dev` or `npm run dev`
 
-- Configure **Theme Styles** in `src/styles/constants`
-
-- Configure **Global Styles** in `src/styles/global.ts`
-
-- Configure **Theme** in `src/styles/themes/default.ts`
-
----
-
-#### :zap: Generator
-
-- Run: `yarn gen` or `npm run gen` in terminal
-
-- Follow the instructions
+- in another terminal, run `yarn dev:server` or `npm run dev:server` to start **JSON Server** on port 3333
 
 ---
 
@@ -55,8 +39,10 @@ This is a boilerplate for React Project using Atomic Design with generator
 
 ```
  ReactJS
+ Axios
  Styled Components
  Styled Media Query
+ React Hot Toast
  Plop
 ```
 
