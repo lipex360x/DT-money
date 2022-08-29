@@ -4,7 +4,7 @@ import { Logo } from '@/components/atoms/Logo'
 import { Modal } from '@/components/molecules/Modal'
 import { Container } from '@/components/bosons/Container'
 import { TransactionForm } from '@/components/molecules/TransactionForm'
-import { ToastContainer } from '@/components/atoms/ToastContainer'
+import { ToastContainer } from '@/components/bosons/ToastContainer'
 import * as S from './styles'
 
 export const Header = () => {
