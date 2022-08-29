@@ -4,7 +4,7 @@
 ---
 
 <p align="center">
-  <img src="https://github.com/lipex360x/ViteTS-Boilerplate/blob/main/assets/screen.png" />
+  <img src="https://github.com/lipex360x/DT-money/blob/main/assets/screen.png" />
 </p>
 
 ---
