@@ -21,7 +21,7 @@
 
 #### :zap: Introduction
 
-This is a financial control app
+This is a React Financial Control App
 
 ---
 
@@ -38,12 +38,13 @@ This is a financial control app
 #### :zap: Technologies
 
 ```
- ReactJS
  Axios
+ Immer
  Styled Components
- Styled Media Query
  React Hot Toast
- Plop
+ React Hook Form
+ Zod
+ Zustand
 ```
 
 ---
