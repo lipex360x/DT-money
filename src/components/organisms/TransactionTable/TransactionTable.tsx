@@ -7,7 +7,7 @@ export const TransactionTable = () => {
   const { transactions } = useTransactionsContext()
 
   return (
-    <S.Wrapper>
+    <S.Table>
       <tbody>
         {transactions.map(transaction => (
           <tr key={transaction.id}>
@@ -25,6 +25,6 @@ export const TransactionTable = () => {
           </tr>
         ))}
       </tbody>
-    </S.Wrapper>
+    </S.Table>
   )
 }

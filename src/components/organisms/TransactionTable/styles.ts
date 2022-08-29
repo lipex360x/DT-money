@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.table`
+export const Table = styled.table`
   ${({ theme }) => css`
-    margin-top: 1rem;
+    margin: 1rem 0;
     width: 100%;
     border-collapse: separate;
     border-spacing: 0 0.5rem;

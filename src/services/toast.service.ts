@@ -12,7 +12,6 @@ const loading = () => {
   return toast.loading('Aguarde...')
 }
 
-
 export default {
   success,
   error,
