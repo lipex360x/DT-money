@@ -26,8 +26,6 @@ export const useTransactionsContext = create<ContextProps>((set) => {
         createdAt: new Date().toISOString()
       })
 
-      console.log(response)
-
       set((state) => produce(state, (draft) => {
         draft.transactions.push(response.data)
       }))
@@ -45,8 +43,6 @@ export const useTransactionsContext = create<ContextProps>((set) => {
       set(() => ({
         transactions: response.data
       }))
-
-      // set((state) => setTransactions(state, response.data))
     }
   }
 })

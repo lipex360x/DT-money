@@ -3,9 +3,10 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { ArrowCircleUp, ArrowCircleDown } from 'phosphor-react'
 import { Button } from '@/components/atoms/Button'
 import { TextField } from '@/components/atoms/FormElements/TextField'
-import * as S from './styles'
 import transactionFormSchema, { TransactionFormInputs } from './TransactionForm.schema'
 import { useTransactionsContext } from '@/contexts/TransactionsContext'
+import toastService from '@/services/toast.service';
+import * as S from './styles'
 
 export const TransactionForm = () => {
   const { createTransaction } = useTransactionsContext()
@@ -26,6 +27,8 @@ export const TransactionForm = () => {
   const handleCreateTransaction = async (data: TransactionFormInputs) => {
     await createTransaction(data)
     reset()
+    toastService.success('Registro inserido com sucesso')
+
   }
 
   return (
@@ -77,6 +80,7 @@ export const TransactionForm = () => {
         type="submit"
         disabled={isSubmitting}
       >Cadastrar</Button>
+
     </S.Form>
   )
 }

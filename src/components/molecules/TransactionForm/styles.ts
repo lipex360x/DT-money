@@ -3,11 +3,11 @@ import * as RadioGroup from '@radix-ui/react-radio-group';
 
 const buttonModifiers = {
   income: (theme: DefaultTheme) => css`
-    background: ${theme.color['green-500']};
+    background: ${theme.color['green-700']};
   `,
 
   outcome: (theme: DefaultTheme) => css`
-    background: ${theme.color['red-500']};
+    background: ${theme.color['red-700']};
   `,
 
   svgColor: (theme: DefaultTheme, variant: 'income' | 'outcome') => css`
